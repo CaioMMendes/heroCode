@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import { connection } from "./infra/database";
 import dotenv from "dotenv";
+import { errorMiddleware } from "./middlewares/errorMiddleware";
 class App {
   public app: Application;
   constructor() {
@@ -18,7 +19,7 @@ class App {
   }
 
   interceptionError() {
-    // this.app.use()
+    this.app.use(errorMiddleware);
   }
 
   initializeRoutes() {
