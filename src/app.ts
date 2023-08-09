@@ -2,8 +2,10 @@ import express, { Application } from "express";
 import { connection } from "./infra/database";
 import dotenv from "dotenv";
 import { errorMiddleware } from "./middlewares/errorMiddleware";
+import { EventRoutes } from "./routes/eventRoutes";
 class App {
   public app: Application;
+  private eventRoutes = new EventRoutes();
   constructor() {
     dotenv.config();
     this.app = express();
@@ -23,7 +25,7 @@ class App {
   }
 
   initializeRoutes() {
-    // this.app.use('/')
+    this.app.use("/events", this.eventRoutes.router);
   }
 
   //se deixar public da pra pegar esse metodo em outros arquivos se deixar private não
