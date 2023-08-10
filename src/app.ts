@@ -15,22 +15,22 @@ class App {
     connection();
   }
 
-  middlewaresInitialize() {
+  private middlewaresInitialize() {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true })); // converte ' ' em %20
   }
-
-  interceptionError() {
+  private interceptionError() {
     this.app.use(errorMiddleware);
   }
 
-  initializeRoutes() {
+  private initializeRoutes() {
     this.app.use("/events", this.eventRoutes.router);
   }
 
   //se deixar public da pra pegar esse metodo em outros arquivos se deixar private não
   public listen() {
     const port = 3444;
+
     this.app.listen(port, () =>
       console.log(`🙂 Server runnin on port ${port}`)
     );

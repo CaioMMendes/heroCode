@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import EventUseCase from "../useCase/EventUseCase";
+import Event from "../entities/Event";
 
 export default class EventController {
   //   private eventUseCase: EventUseCase;
@@ -9,7 +10,7 @@ export default class EventController {
   }
 
   async create(request: Request, response: Response, next: NextFunction) {
-    const eventData = request.body; //O problema de passar assim é que se o cara mandar coisa a mais ele cadastra tmb
+    const eventData: Event = request.body; //O problema de passar assim é que se o cara mandar coisa a mais ele cadastra tmb
     try {
       console.log(eventData);
       await this.eventUseCase.create(eventData);

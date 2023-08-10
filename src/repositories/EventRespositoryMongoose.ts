@@ -15,6 +15,7 @@ const eventSchema = new mongoose.Schema({
   description: String,
   categories: [String],
   banner: String,
+  flyers: [String],
   coupons: [String],
   price: {
     type: Array,
@@ -29,10 +30,10 @@ const eventSchema = new mongoose.Schema({
 const EventModel = mongoose.model("Event", eventSchema);
 
 export default class EventRepositoryMongoose {
-  async add(event:Event):Promise<Event> {
+  async add(event: Event): Promise<Event> {
     const eventModel = new EventModel(event);
 
-     await eventModel.save();
+    await eventModel.save();
     return event;
   }
 }
