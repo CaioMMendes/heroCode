@@ -10,6 +10,7 @@ export default class Event {
     public description: string,
     public banner: string,
     public flyers: string[],
+    public categories: string[],
     public coupons: string[],
     public users: User[],
     public price: Price[],

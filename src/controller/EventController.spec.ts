@@ -12,6 +12,7 @@ describe("Event controller", () => {
         latitude: "-19.8658619",
         longitude: "-43.9737064",
       },
+      categories: ["Show"],
       date: new Date(),
       description: "show do linkin park",
       banner: "string",
@@ -25,6 +26,7 @@ describe("Event controller", () => {
       .field("description", event.description)
       .field("city", event.city)
       .field("coupons", event.coupons)
+      .field("categories", event.categories)
       .field("location[latitude]", event.location.latitude)
       .field("location[longitude]", event.location.longitude)
       .field("price[sector]", event.price[0].sector)
